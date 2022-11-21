@@ -162,6 +162,7 @@ export const Cart = () => {
     let getPrice=[];
     const checkOut =(overallAmount) => {
         navigate('/paystack', {state:{total:overallAmount}});
+        
     }
     const handleDecrease = async (res)=>{
         const cartQtyRef = doc(db, "cart", res.id);
@@ -206,8 +207,14 @@ export const Cart = () => {
     const handleDelete=(res)=>{
         db.collection('cart').doc(res.id).delete().then(()=>{
             console.log("document deleted=>", res.id)
+            
         })
       }
+    //   const handleUpdateDelete=(res)=>{
+    //     db.collection('cart').doc(res.id).where("qty", "===","0").delete().then(()=>{
+    //         console.log("Item deleted", res.id)
+    //     })
+    //   }
     let overallAmount = 0;
     let quantity = 1;
     return (
@@ -243,6 +250,7 @@ export const Cart = () => {
                         
                            <div style={{padding:'2%'}}><img src={res.image} height={280} alt='product-image' /></div>
                             <div style={{marginLeft: '10%',marginTop: '1%', fontSize: '20px', fontWeight: '500', borderLeft: '1px solid grey', paddingLeft: '2%', marginBottom: ' 1%' }}>
+
                             <p>Brand Category: {res.brandCategory}</p>
                             <p>Product  Type:{res.prodType}</p>
                             <p>Product Name: {res.prodName}</p>
@@ -258,13 +266,14 @@ export const Cart = () => {
                             <RiDeleteBin5Line size={40} className='delete' onClick={(v)=>handleDelete(res)} />
                             </div>
                             
+
                             </div>
                         </div>
                     )
                 })}
                 <button
                 style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', margin: '2%', cursor: 'pointer'}}
-c                onClick={() => checkOut(overallAmount)}>Checkout</button>
+               onClick={() => checkOut(overallAmount)}>Checkout</button>
                                 {/* <Link to={{
                     pathname: `/paystack`,
                     state: {amount: 'amount'}
