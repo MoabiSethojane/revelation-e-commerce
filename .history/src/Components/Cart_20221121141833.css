@@ -21,30 +21,5 @@ header {
     line-height: 10px;
   }
   .buttons{
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    justify-content: space-between;
-  }
-
-  .add {
-    
-    color: rgb(226, 135, 135);
-    text-decoration: none;
-    
-   
-  }
-
-  .add :hover {
-    text-decoration: underline;
-    color: #B76E79;
     
   }
-
-  .delete{
-    color: rgb(243, 101, 101);
-  }
-
-  .delete :hover{
-    color: red;
-}

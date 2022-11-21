@@ -248,9 +248,9 @@ export const Cart = () => {
                             <p>Product Name: {res.prodName}</p>
                             <p>product Description:{res.prodDiscription}</p>
                             <p>Total Amount: R{res.price}</p>
-                            <p>product Colour: {res.colour}</p>
-                            <p>Product Size: {res.size}</p>
-                            <p>Product Code: {res.productCode}</p>
+                            <p>{res.colour}</p>
+                            <p>{res.size}</p>
+                            <p>{res.productCode}</p>
                             <div className='buttons'>
                             <FaMinusCircle className='add' size={30} onClick={(v) =>handleDecrease(res)} />Quantity:{res.qty}
                             <FaPlusCircle size={30} className='add' onClick={(v) =>handleIncrement(res)}/>

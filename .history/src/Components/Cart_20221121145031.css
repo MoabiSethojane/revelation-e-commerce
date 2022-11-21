@@ -42,9 +42,9 @@ header {
   }
 
   .delete{
-    color: rgb(243, 101, 101);
+    color: red;
   }
 
   .delete :hover{
-    color: red;
+    
 }

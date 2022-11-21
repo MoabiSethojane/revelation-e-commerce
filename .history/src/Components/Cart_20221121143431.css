@@ -23,7 +23,7 @@ header {
   .buttons{
     display: flex;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     justify-content: space-between;
   }
 
@@ -37,14 +37,6 @@ header {
 
   .add :hover {
     text-decoration: underline;
-    color: #B76E79;
+    color: rgb(226, 135, 135);
     
   }
-
-  .delete{
-    color: rgb(243, 101, 101);
-  }
-
-  .delete :hover{
-    color: red;
-}
