@@ -1,0 +1,36 @@
+header {
+    padding: 40px 0 20px 0;
+    background-color: #fff;
+  }
+  header .box {
+    margin: 0 0 0 30px;
+  }
+  header a {
+    font-size: 13px;
+    color: grey;
+  }
+  header i {
+    font-size: 40px;
+    color: linear-gradient(180deg, #FFF0DF 0%, rgba(208, 208, 208, 0) 100%);
+    margin-right: 15px;
+  }
+  header .text {
+    margin-top: 10px;
+  }
+  header h4 {
+    line-height: 10px;
+  }
+  .buttons{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .add {
+    
+    background-color: rgb(245, 245, 245);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 18px;
+  }

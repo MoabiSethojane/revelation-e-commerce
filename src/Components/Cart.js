@@ -1,6 +1,3 @@
-
-
-
 import { onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { FaIgloo } from 'react-icons/fa'
@@ -14,7 +11,9 @@ import { doc, updateDoc, increment } from "firebase/firestore";
 import {FaMinusCircle, FaPlusCircle} from 'react-icons/fa'
 import {RiDeleteBin5Line} from 'react-icons/ri'
 
+import {TiArrowBackOutline} from 'react-icons/ti';
 import { Products } from './Products'
+import './Cart.css';
 
 export const Cart = () => {
     const navigate = useNavigate();
@@ -182,6 +181,12 @@ export const Cart = () => {
             });
         });
     }
+
+    
+
+    const back = () =>{
+        navigate('/')
+    }
     const handleIncrement = async (res)=>{
         const cartQtyRef = doc(db, "cart", res.id);
             await updateDoc(cartQtyRef, {
@@ -213,7 +218,15 @@ export const Cart = () => {
     let overallAmount = 0;
     let quantity = 1;
     return (
-        <>Cart
+        <>
+         
+
+        <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px', display: 'flex'}}>Cart</h1>
+        <button type="submit" onClick={back} 
+                        style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', marginLeft: '77%', cursor: 'pointer'}}
+                        >
+                         <TiArrowBackOutline size={30}/>
+                        </button>
             <div>
                 {cartProducts.map(res=> {
                       if (res.price){
@@ -232,38 +245,40 @@ export const Cart = () => {
                 //      return {totalPrice};
                 //     }
                 //    console.log(getTotalAmount())
-
                     return (
                         <div style={{background: 'whitesmoke', margin: 8, color:'grey', display: 'flex'}}>
+                        
                            <div style={{padding:'2%'}}><img src={res.image} height={280} alt='product-image' /></div>
                             <div style={{marginLeft: '10%',marginTop: '1%', fontSize: '20px', fontWeight: '500', borderLeft: '1px solid grey', paddingLeft: '2%', marginBottom: ' 1%' }}>
-                            <p>{res.brandCategory}</p>
-                            <p>{res.prodType}</p>
-                            <p>{res.prodName}</p>
-                            <p>{res.prodDiscription}</p>
-                            <p>R{res.price}</p>
-                            <p>R{res.price * res.qty}</p>
-                            <p>{res.colour}</p>
-                            <p>{res.size}</p>
-                            <p>{res.productCode}</p>
-                            <p><button onClick={(v) =>handleDecrease(res)}style={{background:'red'}}><FaMinusCircle size={20} /></button>Quantity:{res.qty}<button onClick={(v) =>handleIncrement(res)}style={{background:'green'}}>
-                            <FaPlusCircle size={20}/></button>
-                            <button onClick={(v)=>handleDelete(res)} style={{background:'red'}}><RiDeleteBin5Line size={20}/></button></p>
+
+                            <p>Brand Category: {res.brandCategory}</p>
+                            <p>Product  Type:{res.prodType}</p>
+                            <p>Product Name: {res.prodName}</p>
+                            <p>product Description:{res.prodDiscription}</p>
+                            <p>Total Amount: R{res.price}</p>
+                            <p>product Colour: {res.colour}</p>
+                            <p>Product Size: {res.size}</p>
+                            <p>Product Code: {res.productCode}</p>
+                            <div className='buttons'>
+                            <FaMinusCircle className='add' size={30} onClick={(v) =>handleDecrease(res)} />Quantity:{res.qty}
+                            <FaPlusCircle size={30} className='add' onClick={(v) =>handleIncrement(res)}/>
+                            
+                            <RiDeleteBin5Line size={40} className='delete' onClick={(v)=>handleDelete(res)} />
+                            </div>
+                            
+
                             </div>
                         </div>
-                        
                     )
                 })}
-                <button 
+                <button
                 style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', margin: '2%', cursor: 'pointer'}}
-c                onClick={() => checkOut(overallAmount)}>Checkout</button>
-
+               onClick={() => checkOut(overallAmount)}>Checkout</button>
                                 {/* <Link to={{
                     pathname: `/paystack`,
                     state: {amount: 'amount'}
                 }} >Checkout </Link> */}
                 {/* <h4><Link to={`/paystack:${'hello'}`}>Checkout</Link></h4> */}
-
                   {/* <h4><Link to={`/paystack`}>Checkout</Link></h4>   */}
             </div>
             {/* */}

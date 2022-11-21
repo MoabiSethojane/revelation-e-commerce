@@ -141,7 +141,7 @@ function ProductVIew(individualProduct, ID, individualCartProduct) {
                 console.log(Object.assign(products, sizes ));
               }}
             >
-              <p style={{ background: "whitesmoke", margin: "8px" }}>
+              <p style={{ background: "#B76E79", margin: "8px" }}>
                 {sizes.size} : R{sizes.price}
               </p>
             </div>
