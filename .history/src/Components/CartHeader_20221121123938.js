@@ -1,0 +1,20 @@
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+
+const CartHeader = () ={
+    const navRef = useRef();
+
+    const showNavbar = () => {
+        navRef.current.classList.toggle("responsive_nav");
+
+    };
+
+    return (
+        <>
+
+        </>
+    )
+}
+
+
+export default CartHeader;

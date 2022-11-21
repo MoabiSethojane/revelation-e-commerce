@@ -8,8 +8,6 @@ import { Navbar } from './Navbar'
 import { PayStack } from './PayStack'
 import { Link } from 'react-router-dom'
 import { Products } from './Products'
-import './Cart.css';
-
 export const Cart = () => {
     const navigate = useNavigate();
     function GetUserUid() {
@@ -162,7 +160,38 @@ export const Cart = () => {
     let overallAmount = 0;
     return (
         <>
-         
+         <header>
+        <div className='contact flex_space'>
+            <div className='box flex_space'>
+                <div className='icons'>
+                    <i className='far fa-clock'></i>
+                </div>
+                <div className='text'>
+                    <h4>Working Hours</h4>
+                    <Link to="/contact">Monday - Sunday: 9.00am to 7.00pm</Link>
+                </div>
+            </div>
+            <div className='box flex_space'>
+                <div className='icons'>
+                    <i className='fas fa-phone-volume'></i>
+                </div>
+                <div className='text'>
+                    <h4>Call Us</h4>
+                    <Link to="/contact">+016 123 4567</Link>
+                </div>
+            </div>
+            <div className='box flex_space'>
+                <div className='icons'>
+                    <i className='far fa-envelope'></i>
+                </div>
+                <div className='text'>
+                    <h4>Mail Us</h4>
+                    <Link to="/contact">bhisqhietslodge@gmail.com</Link>
+                </div>
+            </div>
+
+        </div>
+    </header>
 
         <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px', display: 'flex'}}>Cart</h1>
             <div>

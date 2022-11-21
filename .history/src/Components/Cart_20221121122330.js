@@ -162,7 +162,17 @@ export const Cart = () => {
     let overallAmount = 0;
     return (
         <>
-         
+         <header>
+        <div className='contact flex_space'>
+            <div className='box flex_space'>
+                <div className='text'>
+                    <h1>Cart</h1>
+                    
+                </div>
+            </div>
+
+        </div>
+    </header>
 
         <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px', display: 'flex'}}>Cart</h1>
             <div>

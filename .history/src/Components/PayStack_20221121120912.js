@@ -111,7 +111,7 @@ export const PayStack = (props) => {
   return (
     <div className='w3-container w3-row' style={{justifyContent: 'center', padding: '10%', paddingBottom: '10%', backgroundColor: 'whitesmoke', margin: '7%'}}>
        <button type="submit" onClick={back} 
-       style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', marginLeft: '92%', cursor: 'pointer'}}
+       style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', marginLeft: '92%', cursor: 'pointer', marginTop: ''}}
        >
         <TiArrowBackOutline size={30}/>
        </button>

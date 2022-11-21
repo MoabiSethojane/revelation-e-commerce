@@ -110,11 +110,6 @@ export const PayStack = (props) => {
     }
   return (
     <div className='w3-container w3-row' style={{justifyContent: 'center', padding: '10%', paddingBottom: '10%', backgroundColor: 'whitesmoke', margin: '7%'}}>
-       <button type="submit" onClick={back} 
-       style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', marginLeft: '92%', cursor: 'pointer'}}
-       >
-        <TiArrowBackOutline size={30}/>
-       </button>
        <h1>Checkout Details</h1>
        
        <p style={{fontSize: '22px', paddingLeft: '2%'}}>Customer Name: {userDetails.FullName}</p>

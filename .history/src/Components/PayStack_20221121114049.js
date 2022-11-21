@@ -4,8 +4,6 @@ import fire, { auth, db } from '../Config/Config'
 import { onAuthStateChanged } from 'firebase/auth'
 import { Navbar } from './Navbar'
 import { useLocation } from 'react-router-dom'
-import { useNavigate} from "react-router-dom";
-import {TiArrowBackOutline} from 'react-icons/ti';
 
 
 export const PayStack = (props) => {
@@ -74,12 +72,12 @@ export const PayStack = (props) => {
 
     const [email, setEmail] = useState("")
     const [amount, setAmount]=useState(location.state.total)
-    const [firstName, setFirstName]=useState("");
-    const [lastName, setLastName]=useState("");
+    const [firstName, setFirstName]=useState("")
+    const [lastName, setLastName]=useState("")
     const navigate = useNavigate();
 
     const back = () =>{
-        navigate('/cart')
+        navigate('/register')
     }
   
     const paywithpaystack=(e)=>{
@@ -110,13 +108,8 @@ export const PayStack = (props) => {
     }
   return (
     <div className='w3-container w3-row' style={{justifyContent: 'center', padding: '10%', paddingBottom: '10%', backgroundColor: 'whitesmoke', margin: '7%'}}>
-       <button type="submit" onClick={back} 
-       style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', marginLeft: '92%', cursor: 'pointer'}}
-       >
-        <TiArrowBackOutline size={30}/>
-       </button>
        <h1>Checkout Details</h1>
-       
+       <button type="submit" onClick={back} style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', margin: '2%', cursor: 'pointer'}}></button>
        <p style={{fontSize: '22px', paddingLeft: '2%'}}>Customer Name: {userDetails.FullName}</p>
        <p style={{fontSize: '22px', paddingLeft: '2%'}}>Customer Email: {userDetails.Email}</p>   
        <p style={{fontSize: '22px', paddingLeft: '2%'}}>Amount to pay : R {amount}</p>

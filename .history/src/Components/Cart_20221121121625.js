@@ -8,8 +8,6 @@ import { Navbar } from './Navbar'
 import { PayStack } from './PayStack'
 import { Link } from 'react-router-dom'
 import { Products } from './Products'
-import './Cart.css';
-
 export const Cart = () => {
     const navigate = useNavigate();
     function GetUserUid() {
@@ -162,9 +160,7 @@ export const Cart = () => {
     let overallAmount = 0;
     return (
         <>
-         
-
-        <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px', display: 'flex'}}>Cart</h1>
+        <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px'}}>Cart</h1>
             <div>
                 {cartProducts.map((res,i,arr) => {
                       getPrice.push(arr[i].price*res.qty);

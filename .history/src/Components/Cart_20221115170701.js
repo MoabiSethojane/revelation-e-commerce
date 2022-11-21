@@ -1,3 +1,59 @@
+
+// import React, { useEffect, useState } from 'react'
+// import { useNavigate } from 'react-router-dom';
+// import { db } from '../Config/Config';
+
+
+// export const Cart = () => {
+//   const [cart, setCart] = useState([])
+//   const [products, setProducts] = useState([])
+//   const getCart = async () => {
+//     // const products = await db.collection('Product').get();
+//     const products = await db.collection('cart').get();
+
+//     const productArray = [];
+//     for (var snap of products.docs) {
+//         var data = snap.data();
+//         data.ID = snap.id;
+
+//         productArray.push({
+//             ...data
+//         })
+//         if (productArray.length === products.docs.length) {
+//             setProducts(productArray)
+
+
+//         }
+
+//     }
+
+// }
+// const navigate = useNavigate()
+// useEffect(() => {
+//     getCart();
+
+// }, [])
+// let Product;
+//  return(
+//  <div>
+// <h1>Cart</h1>
+// <div>
+//   {
+//     products.map((product, inx)=>{
+
+//      console.log(product.ID);
+// <div key={inx} >
+//       <h5 >{product.price}</h5>
+//       <h5 >{product.ID}</h5>
+// </div>
+//     })
+//   }
+// </div>
+
+//  </div>
+//  )
+// }
+
 import { onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { FaIgloo } from 'react-icons/fa'
@@ -7,11 +63,11 @@ import { CartProduct } from './CartProduct'
 import { Navbar } from './Navbar'
 import { PayStack } from './PayStack'
 import { Link } from 'react-router-dom'
+
+
 import { Products } from './Products'
-import './Cart.css';
 
 export const Cart = () => {
-    const navigate = useNavigate();
     function GetUserUid() {
         const [uid, setUid] = useState(null);
         useEffect(() => {
@@ -34,19 +90,93 @@ export const Cart = () => {
                         setUser(snapshot.data().FullName)
                     })
                 } else {
+
+
                     setUser(null)
                 }
             })
             return unbn
         }, [])
         return user;
+
+
     }
     const user = GetCurrentUser()
     const addCart = () => {
         console.log('Hello world')
     };
+    // const [products, setProducts] = useState([])
+
+    //   const getProduct = async () => {
+    //       // const products = await db.collection('Product').get();
+    //       const products = await db.collection('cart').get();
+
+    //       const productArray = [];
+    //       for (var snap of products.docs) {
+    //           var data = snap.data();
+    //           data.ID = snap.id;
+
+    //           productArray.push({
+    //               ...data
+    //           })
+    //           if (productArray.length === products.docs.length) {
+    //               setProducts(productArray)
+
+
+    //           }
+
+    //       }
+
+    //   }
+    //   const navigate = useNavigate()
+    //   useEffect(() => {
+    //       getProduct();
+
+    //   }, [])
+    //   let Product;
+
+    //   const addToCart = (product) => {
+    //       if (uid !== null) {
+    //           Product = product;
+    //           Product['qty'] = 1;
+    //           Product['TotalProductPrice'] = Product.qty * Product.price;
+    //           db.collection("Cart" + uid).doc(product.ID).update(Product)
+    //           console.log("Successfull Added to Cart")
+    //       } else {
+    //           navigate('login')
+    //       }
+
+    //   }
+
+    //   const helloWorld = () => {
+    //       console.log('Hello world')
+    //   };
+    //   const addCart = () => {
+    //       console.log('Hello world')
+    //   };
+    //   const qty = CartProducts.map(cartProduct =>{
+    //     return cartProduct.qty;
+    //   })
+    //   const reduceOfQty=(accumulator, currentValue)=>accumulator+currentValue;
+    //   const totalQty= qty.reduce(reduceOfQty,0)
+
+    //   const cartProductIncrease=(cartProduct)=>{
+    //     Product = cartProduct;
+    //     Product.qty= Product.qty+1
+    //     //Product.TotalProductPrice= Product.qty*Product.price;
+    // }
+    //   const cartProductDecrease=(cartProduct)=>{
+    //     Product = cartProduct;
+    //     Product.qty= Product.qty-1
+    //     //Product.TotalProductPrice= Product.qty*Product.price;
+    //   }
+
+
+
+
     //state of the cart
     const [cartProducts, setCartProduct] = useState([])
+
     // getting cart product from the firestore collection and updating the state
     const cardProduct = []
     useEffect(() => {
@@ -57,7 +187,17 @@ export const Cart = () => {
                 console.log(newCart.data())
                 cardProduct.push(newCart.data())
             })
+
+            // const newCartProduct = snapshort.doc.map((doc)=>({
+            //     ID: doc.id,
+            //     ...doc.data(),
+
+
+            // }));
+
+            // console.log(cardProduct)
             setCartProduct(cardProduct)
+
         })
         //     }else{
         //         console.log("user is not signed in to retive cart")
@@ -65,21 +205,32 @@ export const Cart = () => {
         // })
         console.log(cardProduct)
     }, [])
+
+
+
+
     // const [products, setProducts] = useState([])
+
     // const getProduct = async () => {
     //     // const products = await db.collection('Product').get();
     //     const products = await db.collection('cart').get();
+
     //     // const productArray = [];
     //     for (var snap of cardProduct.docs) {
     //         var data = snap.data();
     //         data.ID = snap.id;
+
     //         cartProducts.push({
     //             ...data
     //         })
     //         if (cartProducts.length === cartProducts.docs.length) {
     //             setProducts(cartProducts)
+
+
     //         }
+
     //     }
+
     // }
     // console.log(cardProduct)
     // const qty = cartProducts.map(cartProduct =>{
@@ -129,11 +280,13 @@ export const Cart = () => {
     //         <div className='container-fluid'>
     //         <h1 className='text-center'>Cart</h1>
     //         <div className='products-box'>
+
     //             {/* <CartProducts cardProduct={cardProduct}
     //                 cartProductIncrease={cartProductIncrease}
     //                 cartProductDecrease={cartProductDecrease}
     //             /> */}
     //         </div>
+
     //         <div className='summery-box'>
     //         <h5>Cart Summary</h5>
     //         <br></br>
@@ -147,42 +300,24 @@ export const Cart = () => {
     //         </div>
     //     )
     //     }
+
     //     {cardProduct.length<1 &&(
     //         <div className='container-fluid'>No Products to show</div>
+
+
     //     )
     //     }
     //            {/* <Products products={products} helloWorld={helloWorld} /> */}
     //     </>
     //   )
-    let getPrice=[];
-    const checkOut =(overallAmount) => {
-        navigate('/paystack', {state:{total:overallAmount}});
-    }
-    let i = 0;
-    let overallAmount = 0;
     return (
-        <>
-         
-
-        <h1 style={{color:'grey', maginLeft:'2%', fontSize:'40px', display: 'flex'}}>Cart</h1>
+        <>Cart
+        
             <div>
-                {cartProducts.map((res,i,arr) => {
-                      getPrice.push(arr[i].price*res.qty);
-                      if (res.price)
-                      overallAmount = overallAmount + (parseFloat(res.price) * parseFloat(res.qty));
-                      console.log('chek', overallAmount)
-                //     const getTotalAmount=()=>{
-                //      let getAmount = res.price;
-                //      let getQty = res.qty;
-                //      let totalPrice = getAmount*getQty
-                //      console.log("this is the total ",totalPrice)
-                //      return {totalPrice};
-                //     }
-                //    console.log(getTotalAmount())
+                {cartProducts.map(res => {
                     return (
-                        <div style={{background: 'whitesmoke', margin: 8, color:'grey', display: 'flex'}}>
-                           <div style={{padding:'2%'}}><img src={res.image} height={280} alt='product-image' /></div>
-                            <div style={{marginLeft: '10%',marginTop: '1%', fontSize: '20px', fontWeight: '500', borderLeft: '1px solid grey', paddingLeft: '2%', marginBottom: ' 1%' }}>
+                        <div style={{background: 'blue', margin: 8, color:'whitesmoke'}}>
+                              <img src={res.image} height={100} alt='product-image' />
                             <p>{res.brandCategory}</p>
                             <p>{res.prodType}</p>
                             <p>{res.prodName}</p>
@@ -191,19 +326,12 @@ export const Cart = () => {
                             <p>{res.colour}</p>
                             <p>{res.size}</p>
                             <p>{res.productCode}</p>
-                            </div>
+                
                         </div>
+                        
                     )
                 })}
-                <button
-                style={{border: '1px solid transparent', backgroundColor: ' grey', fontSize: '18px', justifyContent: 'center', padding: '1%', width: '20%', color: 'whitesmoke', fontWeight: '500', alignSelf: 'center', margin: '2%', cursor: 'pointer'}}
-c                onClick={() => checkOut(overallAmount)}>Checkout</button>
-                                {/* <Link to={{
-                    pathname: `/paystack`,
-                    state: {amount: 'amount'}
-                }} >Checkout </Link> */}
-                {/* <h4><Link to={`/paystack:${'hello'}`}>Checkout</Link></h4> */}
-                  {/* <h4><Link to={`/paystack`}>Checkout</Link></h4>   */}
+                  <h4><Link to='/paystack'>Checkout</Link></h4>  
             </div>
             {/* */}
         </>
