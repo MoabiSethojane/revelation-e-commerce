@@ -7,10 +7,6 @@ import { CartProduct } from './CartProduct'
 import { Navbar } from './Navbar'
 import { PayStack } from './PayStack'
 import { Link } from 'react-router-dom'
-import { doc, updateDoc, increment } from "firebase/firestore";
-import {FaMinusCircle, FaPlusCircle} from 'react-icons/fa'
-import {RiDeleteBin5Line} from 'react-icons/ri'
-
 import { Products } from './Products'
 import './Cart.css';
 
