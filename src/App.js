@@ -17,6 +17,7 @@ import Disclaimer from './Components/Disclaimer';
 import FAQS from './Components/FAQS.js';
 import Terms from './Components/Terms';
 import { PayStack } from './Components/PayStack';
+import { OrderCart } from './Components/OrderCart';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path = '/faqs' element={<FAQS/>}/>
         <Route path = '/terms' element={<Terms/>}/>
         <Route path='/paystack' element={<PayStack/>}/>
+        <Route path='/complete-order' element={<OrderCart/>}/>
         <Route path="*" element={<NotFound/>}/>
 
       </Routes>
