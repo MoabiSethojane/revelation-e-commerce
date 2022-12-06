@@ -95,28 +95,7 @@ export const OrderCart = () => {
       console.log(er.message);
     })
 
-    // console.log('uid: ', uid)
-    // db
-    //   .collection("user")
-    //   .doc('0pCc5XQRfYMSFpRbBxJsBPNXJgs1')
-    //   .collection("completeOrder")
-    //   .get().then(res => {
-    //     res.forEach(element => {
-    //       console.log(element.id)
-    //     })
-    //   }).catch(er => {
-    //     console.log('error: ', er.message);
-    //   })
-
-    // productOrder.then((res) => {
-    //   res.forEach((element) => {
-    //     console.log("Element: ", element.data());
-    //     completeOrder.push(element.data());
-    //   });
-    //   // setProductOrderList(completeOrder);
-    //   // var mySubArray = _.uniq(completeOrder, "completeOrders");
-    //   // console.log("Element: ", mySubArray);
-    //   // setProductOrder(mySubArray);
+    
     const products = db
   .collection("completedOrders")
   .doc()
@@ -125,7 +104,6 @@ products.then((res) => {
   console.log('12 order data here=>',res.data());
   setProducts(res.data());
 });
-    // });
   }, []);
   console.log("33 order here=>", products)
   return (
