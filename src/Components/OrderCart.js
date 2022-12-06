@@ -83,11 +83,7 @@ export const OrderCart = () => {
   }
   GetCurrentUser()
 
-  // db.collection("completeOrder")
-  //   .doc(finalObj.colour + '_' + finalObj.size + '_' + finalObj.productCode).set({ ...finalObj, ...{ uid: uid } }).then(() => {
-  //     console.log('Finished!!')
-  //   })
-  
+
   
 
 
@@ -138,7 +134,7 @@ products.then((res) => {
     <span><img src={orders.image} height={100} alt='product-image' /></span> 
     <div>
     <p><h4>Reference Number:</h4> {completeOrder.referenceNumber}</p>
-    {/* <p>Order Date: {completeOrder.cartProducts}</p>  */}
+   
     {console.log('orders=> ',{orders})}
     <p><h4>Brand Category:</h4> {orders.brandCategory}</p>
     <p><h4>Product Colour:</h4> {orders.colour}</p>
